@@ -1,0 +1,1 @@
+c:\users\nouman\documents\visual studio 2010\Projects\TicTacToe\TicTacToe\TicTacToeContent\obj\Windows Phone\Debug\TicTacToeContent.contentprojResolveAssemblyReference.cache

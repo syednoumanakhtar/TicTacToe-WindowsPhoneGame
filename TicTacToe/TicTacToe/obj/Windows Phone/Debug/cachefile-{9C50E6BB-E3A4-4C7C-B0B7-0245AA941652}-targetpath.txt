@@ -1,0 +1,9 @@
+Content\TicTacToe_Draw.xnb
+Content\TicTacToe_Grid.xnb
+Content\TicTacToe_O.xnb
+Content\TicTacToe_O_Turn.xnb
+Content\TicTacToe_O_Winner.xnb
+Content\TicTacToe_Reset.xnb
+Content\TicTacToe_X.xnb
+Content\TicTacToe_X_Turn.xnb
+Content\TicTacToe_X_Winner.xnb
