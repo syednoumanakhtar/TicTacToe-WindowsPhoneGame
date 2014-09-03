@@ -59,6 +59,19 @@ namespace TicTacToe
             base.Initialize();
         }
 
+        private void Reset()
+        {
+            winnable = true;
+            winner = TicTacToePlayer.None;
+            grid = new TicTacToePlayer[3, 3];
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    grid[i, j] = TicTacToePlayer.None;
+                }
+            }
+        }
         
         protected override void LoadContent()
         {
@@ -131,6 +144,31 @@ namespace TicTacToe
                             current = current == TicTacToePlayer.PlayerO ? TicTacToePlayer.PlayerX : TicTacToePlayer.PlayerO;
                         }
                     }
+                }
+            }
+        }
+
+        private void CheckForWin(TicTacToePlayer player)
+        {
+            Func<TicTacToePlayer, bool> checkWinner = b => b == player;
+            if (
+                grid.Row(0).All(checkWinner) || grid.Row(1).All(checkWinner) || grid.Row(2).All(checkWinner) ||
+                grid.Column(0).All(checkWinner) || grid.Column(1).All(checkWinner) || grid.Column(2).All(checkWinner) ||
+                grid.Diagonal(MultiDimensionalArrayExtensions.DiagonalDirection.DownRight).All(checkWinner) || grid.Diagonal(MultiDimensionalArrayExtensions.DiagonalDirection.DownLeft).All(checkWinner)
+            )
+            {
+                winner = player;
+            }
+        }
+        
+        private void CheckForWinnable()
+        {
+            if (winner == TicTacToePlayer.None)
+            {
+                Func<TicTacToePlayer, bool> checkNone = b => b == TicTacToePlayer.None;
+                if (!grid.All().Any(checkNone))
+                {
+                    winnable = false;
                 }
             }
         }
